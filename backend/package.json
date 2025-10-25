@@ -1,0 +1,16 @@
+{
+  "name": "e-note",
+  "version": "1.0.0",
+  "description": "E-notebook for saving notes on cloud",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "mongoose": "^8.19.2",
+    "mongose": "^0.0.2-security"
+  }
+}
