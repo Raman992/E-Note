@@ -86,7 +86,6 @@ router.post(
         user: { id: existingUser.id },
       };
       const authtoken = jwt.sign(data, JWT_SIGNATURE);
-
       res.status(200).json({ message: 'Login successful', authtoken });
     } catch (error) {
       res.status(500).json({ error: "Internal server error: " + error.message });
@@ -97,10 +96,8 @@ router.post(
 // Route 3: POST /api/auth/getuser - Get logged-in user details
 router.post('/getuser', fetchuser, async (req, res) => {
   try {
-    const userId = req.userdata.id;
-    const userData = await User.findById(userId).select("-password");
-    console.log("Sending response now...");
-
+    const userId = req.user.id;
+    const userData = await User.findById(userId).select("name email"); //Query
     res.send(userData);
   } catch (error) {
     console.log(error.message);
