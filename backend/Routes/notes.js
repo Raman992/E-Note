@@ -39,8 +39,8 @@ router.post('/createnotes', fetchuser, [
         }
     });
 
-//Route 3 delete notes : POST method / '/api/notes/deletenotes' . login req
-router.put('/deletenotes/:id', fetchuser,
+//Route 3 delete notes : DELETE method / '/api/notes/deletenotes' . login req
+router.delete('/deletenotes/:id', fetchuser,
     async (req, res) => {
         try {
             const id = req.params.id;
