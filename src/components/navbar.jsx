@@ -9,7 +9,7 @@ const Navbar = () => {
 
   <input type="checkbox" id="menu-check" hidden/>
 
-  <label for="menu-check" class="menu-toggle">Menu</label>
+  <label htmlFor="menu-check" className="menu-toggle">Menu</label>
     <ul className="nav-links">
       <li><Link to='/'>Home</Link></li>
       <li><Link to='/about'>About</Link></li>
@@ -21,4 +21,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
