@@ -6,6 +6,10 @@ const Navbar = () => {
 <div>
   <nav className="navbar">
     <div className="logo"><img src="./favicon.ico" alt="icon" />wellcome to E-Note</div>
+
+  <input type="checkbox" id="menu-check" hidden/>
+
+  <label for="menu-check" class="menu-toggle">Menu</label>
     <ul className="nav-links">
       <li><Link to='/'>Home</Link></li>
       <li><Link to='/about'>About</Link></li>

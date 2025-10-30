@@ -13,19 +13,21 @@
   align-items: center;
   font-size: 1.5rem;
   font-weight: bold;
-  cursor: pointer;
-  transition: color 0.3s ease;
-  gap: 2px;
+  text-decoration: none;
+  color: white;
+  gap: 8px;
 }
 
-.logo img{
-  padding-right: 5px;
+.logo img {
+  height: 32px;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
   gap: 30px;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links li a {
@@ -40,16 +42,56 @@
   color: #38bdf8;
 }
 
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-  }
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
 
+#menu-check {
+  display: none;
+}
+
+@media (max-width: 768px) {
   .navbar {
-    justify-content: center;
+    padding: 15px 20px;
+    flex-wrap: wrap;
   }
 
   .logo {
     font-size: 1.3rem;
+  }
+
+  .logo img {
+    height: 28px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    width: 100%;
+    flex-direction: column;
+    background-color: #1e293b;
+    margin-top: 15px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .nav-links li {
+    text-align: center;
+    padding: 12px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-links li a {
+    font-size: 1.1rem;
+    display: block;
+  }
+
+  #menu-check:checked ~ .nav-links {
+    max-height: 500px; 
   }
 }
