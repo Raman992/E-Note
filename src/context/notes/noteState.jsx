@@ -23,7 +23,7 @@ const NoteState = (props) => {
 
   //Addnote
   const addNotes = async (name, description, tag) => {
-    const response = await fetch(`${host}/api/notes/fetchnotes`, {
+    const response = await fetch(`${host}/api/notes/createnotes`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -31,19 +31,36 @@ const NoteState = (props) => {
       },
       body: JSON.stringify({name, description, tag})
     });
-    const json = await response.json()
-    setNotes(notes.concat(json));
+    const note = {
+      "_id": "61322f119553781a8ca8d0e08",
+      "user": "6131dc5e3e4037cd4734a0664",
+      "title": name,
+      "description": description,
+      "tag": tag,
+      "date": "2021-09-03T14:20:09.668Z",
+      "__v": 0
+    };
+    setNotes(notes.concat(note));
   }
 
   //Deletenote
-  const deleteNotes = (id) => {
-    const newNotes = notes.filter((note) => { return note._id !== id })
-    setNotes(newNotes)
+  const deleteNotes = async (id) => {
+    const newNotes = notes.filter((note) => { return note._id !== id });
+    setNotes(newNotes);
+    const response = await fetch(`${host}/api/notes/deletenotes/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjkwNDkzZGVjMWIwNzJmYzlmOTE2MmUxIn0sImlhdCI6MTc2MTkwNzcxN30.BDpHmAjCeEfM_vUVjVplh9Dbreg3hNHZ3UXGkSwa38Y"
+      }
+    });
+    const json = await response.json()
+    console.log(json);
   }
 
   //Updatenote
   const updateNotes = async (name, description, tag, id) => {
-    const response = await fetch(`${host}/api/notes/fetchnotes`, {
+    const response = await fetch(`${host}/api/notes/updatenotes/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -52,7 +69,7 @@ const NoteState = (props) => {
       body: JSON.stringify({name, description, tag})
     });
     const json = await response.json()
-
+    console.log(json)
     for (let i = 1; i <= notes.length; i++) {
       const element = notes[i];
       if (element._id === id) {
