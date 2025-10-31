@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './navbar.css'
+import './CSS/navbar.css'
 const Navbar = () => {
   return (
 <div>
   <nav className="navbar">
-    <div className="logo"><img src="./favicon.ico" alt="icon" />wellcome to E-Note</div>
+    <div className="logo mx-2"><img src="./favicon.ico" alt="icon" />Wellcome to E-Notes</div>
 
   <input type="checkbox" id="menu-check" hidden/>
 
@@ -16,6 +16,7 @@ const Navbar = () => {
       <li><Link to='/contact'>Contact</Link></li>
     </ul>
   </nav>
+      <hr />
 </div>
   );
 };

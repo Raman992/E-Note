@@ -1,0 +1,10 @@
+.alert {
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(14,165,164,0.06), rgba(14,165,164,0.03));
+  color: var(--accent-600);
+  border: 1px solid rgba(14,165,164,0.12);
+  box-shadow: var(--shadow-sm);
+  max-width: 920px;
+  margin: 10px auto;
+}

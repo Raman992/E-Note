@@ -1,0 +1,16 @@
+
+.row {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.row > h2 {
+  width: 100%;
+  font-size: 1.1rem;
+  margin-bottom: .6rem;
+  color: var(--text);
+  padding-left: 6px;
+}

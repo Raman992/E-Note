@@ -1,0 +1,27 @@
+.container h2 {
+  color: var(--text);
+  font-size: 1.25rem;
+  margin-bottom: .8rem;
+}
+
+.container form {
+  background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.85));
+  padding: 18px;
+  border-radius: 14px;
+  box-shadow: var(--shadow-md);
+  max-width: 720px;
+}
+
+.form-row {
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width:720px){
+  .form-row { grid-template-columns: 1fr; }
+}
+
+.btn { margin-top: .6rem; }
+
+.mb-3 label { color: var(--muted); }

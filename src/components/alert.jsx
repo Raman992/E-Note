@@ -1,9 +1,10 @@
 import React from 'react'
+import './CSS/alert.css'
 
 export const Alert = (props) => {
     return (
         <div>
-            <div class="alert" role="alert">
+            <div className="alert" role="alert">
                 {props.message}
             </div>
         </div>
