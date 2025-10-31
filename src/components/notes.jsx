@@ -1,11 +1,15 @@
-import React, {useContext} from 'react'
+import React, {useContext,useEffect} from 'react'
 import noteContext from "../context/notes/noteContext"
 import Noteitem from './noteItem';
 import './CSS/notes.css'
 
 const Notes = () => {
     const context = useContext(noteContext);
-    const {notes, addNotes} = context;
+    
+    const {notes, fetchNotes} = context;
+    useEffect(()=>{
+        fetchNotes();
+    },[])
     return (
         <div className='row'>
             <h2 className='mx-2' >Your Notes</h2> 
