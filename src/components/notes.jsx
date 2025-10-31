@@ -5,7 +5,7 @@ import './CSS/notes.css'
 
 const Notes = () => {
     const context = useContext(noteContext);
-    const {notes, setNotes} = context;
+    const {notes, addNotes} = context;
     return (
         <div className='row'>
             <h2 className='mx-2' >Your Notes</h2> 
