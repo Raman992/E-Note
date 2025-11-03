@@ -75,7 +75,7 @@ const EditModal = ({ show, onClose, note }) => {
                     </div>
 
                     <div className="d-flex justify-content-end gap-2">
-                        <button type="button" className="btn btn-secondary" onClick={onClose}>
+                        <button type="button" className="btn mx-2" onClick={onClose}>
                             Cancel
                         </button>
                         <button type="submit" className="btn btn-primary">
