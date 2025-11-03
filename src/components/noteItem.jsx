@@ -1,18 +1,19 @@
-import React, { useContext } from 'react'
+import React, { useContext,useState } from 'react'
 import NoteContext from '../context/notes/noteContext';
 import './CSS/noteItem.css'
+import EditModal from './editmodal';
 
 const Noteitem = (props) => {
     const { note } = props;
     const context = useContext(NoteContext);
-    const {deleteNotes, updateNotes} = context;
-    const onClickUpdate = () =>{
-        updateNotes()
-        
-    }
-    const onClickDelete = () =>{
-        deleteNotes(note._id)
-    }
+    const {deleteNotes} = context;
+
+    const [showModal, setShowModal] = useState(false);
+
+    const onClickUpdate = () => setShowModal(true);
+
+    const onClickDelete = () => deleteNotes(note._id);
+
     return (
         <div className="columns">
             <div className="card my-3">
@@ -26,6 +27,11 @@ const Noteitem = (props) => {
                     <p><br/>Updated on: "{new Date(note.date).toLocaleTimeString()}"</p>                    
                 </div>
             </div>
+            <EditModal
+                show={showModal}
+                onClose={() => setShowModal(false)}
+                note={note}
+            />
         </div>
     )
 }
