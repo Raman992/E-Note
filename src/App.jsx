@@ -6,6 +6,10 @@ import About from './components/about'
 import Navbar from './components/navbar'
 import Contact from './components/contact'
 import NoteState from './context/notes/noteState'
+import Login from './components/login'
+import Signup from './components/signup'
+
+
 const App = () => {
   return (
     <>
@@ -16,6 +20,8 @@ const App = () => {
         <Route path='/' element={<Home/>} />
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/signup' element={<Signup />} />
         </Routes>
       </BrowserRouter>
       </NoteState>
