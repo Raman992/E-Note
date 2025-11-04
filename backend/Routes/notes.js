@@ -28,11 +28,12 @@ router.post('/createnotes', fetchuser, [
             if (!errors.isEmpty()) {
                 return res.status(400).json({ errors: errors.array() });
             }
-            const notes = new Notes({
+            const note = await new Notes({
                 name, description, tag, user: req.user.id
-            })
-            const savedNotes = await notes.save();
-            res.json({ message: "Note saved successfully", note: savedNotes });
+            }).save();
+
+            res.json(note);
+
         } catch (error) {
             console.log(error.message);
             res.status(500).json({ error: "Sorry, an internal server error occurred" });

@@ -12,6 +12,7 @@ const Addnote = () => {
   const onClickEvent= (e) =>{
     e.preventDefault();
     addNotes(note.name, note.description, note.tag);
+    setNote({ name: '', description: '', tag: '' });
   }
 
   const onChange= (e) =>{

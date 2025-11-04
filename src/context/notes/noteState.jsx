@@ -11,7 +11,6 @@ const NoteState = (props) => {
   'Content-Type': 'application/json',
   'auth-token': "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjkwMWRjMDNkNTZkYmU5NTBiZWZjZjBkIn0sImlhdCI6MTc2MTcyOTU2N30.2bNXrXHyfqhvaY_I3elSMHMhiWBtCFGPYBetjAyyoiA"
 });
-
   
   //Fetchnote
   const fetchNotes = async () => {
@@ -37,7 +36,8 @@ const NoteState = (props) => {
   }
   const newNote = await response.json();
   setNotes(notes.concat(newNote));
-};
+  alert("Note added");
+  };
 
   //Deletenote
   const deleteNotes = async (id) => {
@@ -49,6 +49,7 @@ const NoteState = (props) => {
     });
     const json = await response.json()
     console.log(json);
+    alert("Note deleted");
   }
 
   //Updatenote
@@ -71,6 +72,7 @@ const NoteState = (props) => {
         }
       setNotes(updated)
     }
+    alert("Note updated");
   }
 
   return (
