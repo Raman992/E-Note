@@ -7,7 +7,7 @@ const Addnote = () => {
   const context = useContext(NoteContext);
   const {addNotes} = context;
 
-  const [note, setNote] = useState({name:"", description:"", tag:"default"});
+  const [note, setNote] = useState({name:"", description:"", tag:""});
 
   const onClickEvent= (e) =>{
     e.preventDefault();
@@ -26,15 +26,15 @@ const Addnote = () => {
             <form className="my-3">
                 <div className="mb-3">
                     <label htmlFor="name" className="form-label">Note Name</label>
-                    <input type="text" className="form-control" id="name" name="name" onChange={onChange}/>
+                    <input type="text" className="form-control" id="name" name="name" value={note.name} onChange={onChange}/>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="description" className="form-label">Descriptions</label>
-                    <input type="text" className="form-control" id="description" name='description' onChange={onChange}/>
+                    <input type="text" className="form-control" id="description" name='description' value={note.description} onChange={onChange}/>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="tag" className="form-label">Tag</label>
-                    <input type="text" className="form-control" id="tag" name='tag' onChange={onChange}/>
+                    <input type="text" className="form-control" id="tag" name='tag' value={note.tag} onChange={onChange}/>
                 </div>
                 <button type="submit" className="btn" onClick={onClickEvent}>Add</button>
             </form>
