@@ -1,25 +1,55 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useNavigate  } from 'react-router-dom'
 
-const Login = () => {
-    const onClickEvent =()=>{
+const Login = (props) => {
 
+  const [form, setForm] = useState({
+    email: "", password: ""
+  });
+
+  let navigate = useNavigate ();
+
+  const onChange = (e) =>{
+        setForm({
+      ...form, [e.target.name]: e.target.value
+    })
+  }
+  const onClickEvent = async (e) => {
+    e.preventDefault();
+    const response = await fetch("http://localhost:3000/api/auth/login", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({email: form.email, password: form.password})
+        });
+        const json = await response.json()
+        console.log(json)
+        if (json.authtoken){
+            localStorage.setItem('token', json.authtoken); 
+            navigate("/");
+        }
+        else{
+            alert("Invalid credentials");
+        }
     }
+
   return (
     <div>
       <div className="container my-3">
-            <h2>Login</h2>
-            <form className="my-3">
-                <div className="mb-3">
-                    <label htmlFor="Email" className="form-label">Email</label>
-                    <input type="email" className="form-control" id="Email" name="Email"/>
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="password" className="form-label">Descriptions</label>
-                    <input type="password" className="form-control" id="password" name="password"/>
-                </div>
-                <button type="submit" className="btn" onClick={onClickEvent}>Add</button>
-            </form>
-            </div>
+        <h2>Login</h2>
+        <form className="my-3" onSubmit={onClickEvent}>
+          <div className="mb-3">
+            <label htmlFor="email" className="form-label">Email</label>
+            <input type="email" className="form-control" id="email" name="email" value={form.email} onChange={onChange}/>
+          </div>
+          <div className="mb-3">
+            <label htmlFor="password" className="form-label">Password</label>
+            <input type="password" className="form-control" id="password" name="password" value={form.password} onChange={onChange}/>
+          </div>
+          <button type="submit" className="btn">Login</button>
+        </form>
+      </div>
     </div>
   )
 }

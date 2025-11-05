@@ -9,14 +9,14 @@ const Navbar = () => {
     <div className="logo mx-2"><img src="./favicon.ico" alt="icon" />Wellcome to E-Notes</div>
 
   <input type="checkbox" id="menu-check" hidden/>
-
   <label htmlFor="menu-check" className="menu-toggle">Menu</label>
+  
     <ul className="nav-links">
       <li><Link to='/'>Home</Link></li>
       <li><Link to='/about'>About</Link></li>
       <li><Link to='/contact'>Contact</Link></li>
     </ul>
-    <ul className="nav-links">
+    <ul className="user-links">
       <li><Link to='/login'>Login</Link></li>
       <li><Link to='/signup'>Sign Up</Link></li>
     </ul>      

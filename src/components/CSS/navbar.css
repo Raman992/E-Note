@@ -43,6 +43,26 @@
   transform: translateY(-2px);
 }
 
+.user-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.user-links a {
+  padding: 8px 12px;
+  border-radius: 9px;
+  color: var(--text);
+  font-weight: 600;
+  transition: background .12s ease, color .12s ease, transform .12s ease;
+}
+
+.user-links a:hover {
+  background: rgba(113, 240, 240, 0.08);
+  color: var(--accent-600);
+  transform: translateY(-2px);
+}
+
 /* mobile menu toggle */
 .menu-toggle {
   display: none;
