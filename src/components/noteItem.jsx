@@ -20,8 +20,9 @@ const Noteitem = (props) => {
                 <div className="card-body">
                     <div className="d-flex align-items-center">
                         <h5 className="card-title">{note.name}</h5>
-                        <i className="far fa-trash-alt mx-2" onClick={onClickDelete}></i>
-                        <i className="far fa-edit mx-2" onClick={onClickUpdate}></i>
+                        <i className="far fa-trash-alt mx-2" onClick={onClickDelete}> Delete</i>
+                        <i className="far fa-edit mx-2" onClick={onClickUpdate}> Edit</i>
+                        <i className="fas fa-tag mx-2"> {note.tag}</i>
                     </div>
                     <p className="card-text">{note.description}</p>
                     <p><br/>Updated on: "{new Date(note.date).toLocaleTimeString()}"</p>                    
