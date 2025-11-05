@@ -9,12 +9,15 @@ import NoteState from './context/notes/noteState'
 import Login from './components/login'
 import Signup from './components/signup'
 
+import Alert from './components/alert'
+
 
 const App = () => {
   return (
     <>
     <NoteState>
       <BrowserRouter>
+      <Alert />
       <Navbar />
         <Routes>
         <Route path='/' element={<Home/>} />

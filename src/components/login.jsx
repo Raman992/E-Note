@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { useNavigate  } from 'react-router-dom'
+import { useAlert } from "../context/AlertContext";
 
 const Login = (props) => {
 
+  const { showAlert } = useAlert();
   const [form, setForm] = useState({
     email: "", password: ""
   });
@@ -27,10 +29,11 @@ const Login = (props) => {
         console.log(json)
         if (json.authtoken){
             localStorage.setItem('token', json.authtoken); 
+            showAlert("Logged in successfully","success")
             navigate("/");
         }
         else{
-            alert("Invalid credentials");
+            showAlert("Invalid credentials","error")
         }
     }
 

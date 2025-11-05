@@ -19,6 +19,7 @@ const Addnote = () => {
     setNote({...note,[e.target.name]:e.target.value})
   }
   
+  
   return (
     <div>
       <div className="container my-3">
@@ -26,11 +27,11 @@ const Addnote = () => {
             <form className="my-3">
                 <div className="mb-3">
                     <label htmlFor="name" className="form-label">Note Name</label>
-                    <input type="text" className="form-control" id="name" name="name" value={note.name} onChange={onChange}/>
+                    <input type="text" className="form-control" id="name" name="name" value={note.name} onChange={onChange} minLength={3}/>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="description" className="form-label">Descriptions</label>
-                    <input type="text" className="form-control" id="description" name='description' value={note.description} onChange={onChange}/>
+                    <input type="text" className="form-control" id="description" name='description' value={note.description} onChange={onChange} minLength={6} />
                 </div>
                 <div className="mb-3">
                     <label htmlFor="tag" className="form-label">Tag</label>

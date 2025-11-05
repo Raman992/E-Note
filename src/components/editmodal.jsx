@@ -1,8 +1,11 @@
 import React, { useState, useContext, useEffect } from 'react';
 import NoteContext from '../context/notes/noteContext';
 import './CSS/editmodal.css';
+import { useAlert } from '../context/AlertContext';
+
 
 const EditModal = ({ show, onClose, note }) => {
+    const {showAlert} = useAlert();
     const { updateNotes } = useContext(NoteContext);
 
     const [form, setForm] = useState({
@@ -28,6 +31,7 @@ const EditModal = ({ show, onClose, note }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         updateNotes(form.name, form.description, form.tag, note._id);
+        showAlert("Note updated", "success");
         onClose();
     };
 

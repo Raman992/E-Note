@@ -1,13 +1,16 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { useAlert } from "../context/AlertContext";
+
 
 const Signup = () => {
 
+  const { showAlert } = useAlert();
   const navigate = useNavigate();
   const onClickEvent = async (e) => {
     e.preventDefault();
     if (form.password !== form.cpassword) {
-      alert("Passwords do not match!");
+      showAlert("Passwords do not match!", "warning");
       return;
     }
     const response = await fetch("http://localhost:3000/api/auth/createuser", {
@@ -22,11 +25,11 @@ const Signup = () => {
     if (json.authtoken) {
       localStorage.setItem('token', json.authtoken);
       console.log("Signup data:", form);
-      alert("Signup successful! redirecting to the login page");
+      showAlert("Signup successful! redirected to the login page", "success");
       navigate("/login");
     }
     else {
-      alert("Invalid credentials");
+      showAlert("User exists", "error");
     }
   }
 

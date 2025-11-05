@@ -1,7 +1,9 @@
+import { useAlert } from "../AlertContext";
 import NoteContext from "./noteContext";
 import { useState } from "react";
 
 const NoteState = (props) => {
+  const {showAlert} = useAlert(); 
   const notesInitial = []
   const [notes, setNotes] = useState(notesInitial)
 
@@ -9,7 +11,7 @@ const NoteState = (props) => {
 
   const getAuthHeaders = () => ({
   'Content-Type': 'application/json',
-  'auth-token': "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjkwMWRjMDNkNTZkYmU5NTBiZWZjZjBkIn0sImlhdCI6MTc2MTcyOTU2N30.2bNXrXHyfqhvaY_I3elSMHMhiWBtCFGPYBetjAyyoiA"
+  'auth-token': localStorage.getItem('token')
 });
   
   //Fetchnote
@@ -31,12 +33,12 @@ const NoteState = (props) => {
   });
   if (!response.ok) {
     const err = await response.json();
-    alert(err.error || "Failed to add note");
+    showAlert("Failed to add note", "warning");
     return;
   }
   const newNote = await response.json();
   setNotes(notes.concat(newNote));
-  alert("Note added");
+  showAlert("Note added", "success");
   };
 
   //Deletenote
@@ -49,7 +51,7 @@ const NoteState = (props) => {
     });
     const json = await response.json()
     console.log(json);
-    alert("Note deleted");
+    showAlert("Note deleted", "warning");
   }
 
   //Updatenote
@@ -72,7 +74,7 @@ const NoteState = (props) => {
         }
       setNotes(updated)
     }
-    alert("Note updated");
+    showAlert("Note updated", "success");
   }
 
   return (
