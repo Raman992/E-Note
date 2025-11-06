@@ -23,7 +23,6 @@ const Signup = () => {
     const json = await response.json()
     console.log(json)
     if (json.authtoken) {
-      localStorage.setItem('token', json.authtoken);
       console.log("Signup data:", form);
       showAlert("Signup successful! redirected to the login page", "success");
       navigate("/login");

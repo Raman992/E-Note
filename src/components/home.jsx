@@ -2,6 +2,7 @@ import React from 'react'
 import Notes from './notes'
 import Addnote from './addnote'
 
+
 export const Home = () => {
 
     return (

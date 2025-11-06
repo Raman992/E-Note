@@ -1,8 +1,17 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './CSS/navbar.css'
+import { useAlert } from '../context/AlertContext';
+
 
 const Navbar = () => {
+  let navigate = useNavigate();
+  const {showAlert} = useAlert()
+  const logout =()=>{
+    localStorage.removeItem('token')
+    navigate('/login')
+    showAlert('you have logged out','warning')
+  }
   return (
 <div>
   <nav className="navbar">
@@ -16,10 +25,11 @@ const Navbar = () => {
       <li><Link to='/about'>About</Link></li>
       <li><Link to='/contact'>Contact</Link></li>
     </ul>
-    <ul className="user-links">
+    {!localStorage.getItem('token')?<ul className="user-links">
       <li><Link to='/login'>Login</Link></li>
       <li><Link to='/signup'>Sign Up</Link></li>
     </ul>      
+    :<button className='btn mx-2' onClick={logout}>Logout</button>}
   </nav>
       <hr />
 </div>
