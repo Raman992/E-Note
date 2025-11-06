@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate  } from 'react-router-dom'
 import { useAlert } from "../context/AlertContext";
 
-const Login = (props) => {
+const Login = () => {
 
   const { showAlert } = useAlert();
   const [form, setForm] = useState({
@@ -40,6 +40,8 @@ const Login = (props) => {
   return (
     <div>
       <div className="container my-3">
+        <h1>Login to use the E-Note to save your personal notes</h1>
+        <br />
         <h2>Login</h2>
         <form className="my-3" onSubmit={onClickEvent}>
           <div className="mb-3">

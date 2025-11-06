@@ -46,6 +46,8 @@ const Signup = () => {
   return (
     <div>
       <div className="container my-3">
+        <h1>Create an account before you login</h1>
+        <br />
         <h2>Sign up</h2>
         <form onSubmit={onClickEvent}>
           <div className="mb-3">

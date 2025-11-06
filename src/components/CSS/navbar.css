@@ -41,6 +41,7 @@
   background: rgba(113, 240, 240, 0.08);
   color: var(--accent-600);
   transform: translateY(-2px);
+  cursor: pointer;
 }
 
 .user-links {
