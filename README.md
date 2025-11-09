@@ -1,18 +1,66 @@
-# React + Vite
+# E-Note ✏️
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> **Simple. Clean. Yours.**  
+A minimalist note-taking app built as my **first full-stack MERN project** 
 
-Currently, two official plugins are available:
+## 🚀 ScreenShots
+<img width="1045" height="659" alt="image" src="https://github.com/user-attachments/assets/1389c632-a5a5-42fd-97ee-82d496984395" />
+<img width="1046" height="617" alt="image" src="https://github.com/user-attachments/assets/1e2b898a-b767-45e8-aab4-0305faafdd76" />
+<img width="1047" height="765" alt="image" src="https://github.com/user-attachments/assets/b9273471-7c43-4bb8-a92f-392e9357ba01" />
+<img width="1045" height="728" alt="image" src="https://github.com/user-attachments/assets/6388d5d5-4291-48a5-b7df-19a31b6fdd19" />
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
 
-Note: This will impact Vite dev & build performances.
+## ✨ Features
 
-## Expanding the ESLint configuration
+- Create, edit, and delete notes instantly  
+- Beautiful, responsive design (mobile-first)  
+- Data safely stored in MongoDB  
+- Full CRUD operations  
+- Clean UI with smooth animations  
+- Built with passion as a complete beginner → full-stack dev journey!
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠 Tech Stack (MERN)
+
+| Layer       | Technology                  |
+|-------------|-----------------------------|
+| Frontend    | React 18 + Vite             |
+| Backend     | Node.js + Express           |
+| Database    | MongoDB Atlas               |
+| Styling     | CSS Modules                 |
+
+## 🎯 My Learning Journey
+
+> This is my **very first** full-stack project!  
+I learned everything from:
+- Official MongoDB, Express, React, Node docs
+- YouTube tutorials (shoutout to freeCodeCamp & Web Dev Simplified)
+- Countless hours asking ChatGPT "why is my CORS crying?"
+
+This project taught me:
+- How frontend talks to backend (REST APIs)
+- JWT authentication 
+- That `console.log()` is my best friend
+
+## ▶️ Quick Start (Local Development)
+
+### Prerequisites
+- Node.js 18+
+- MongoDB 
+- Git
+
+### 1. Clone & Setup
+
+```bash
+git clone https://github.com/Raman992/E-Note.git
+cd e-note
+
+# Frontend
+cd client
+npm install
+
+# Backend
+cd ../server
+npm install
+
